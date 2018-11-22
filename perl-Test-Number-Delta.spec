@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Number-Delta
 Version  : 1.06
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.06.tar.gz
 Summary  : 'Compare the difference between numbers against a given tolerance'
@@ -74,7 +74,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/Test/Number/Delta.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Test/Number/Delta.pm
 
 %files dev
 %defattr(-,root,root,-)
