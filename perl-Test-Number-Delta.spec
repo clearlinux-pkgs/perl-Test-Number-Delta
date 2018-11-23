@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Number-Delta
 Version  : 1.06
-Release  : 3
+Release  : 4
 URL      : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.06.tar.gz
 Summary  : 'Compare the difference between numbers against a given tolerance'
