@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-Number-Delta
 Version  : 1.06
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.06.tar.gz
-Summary  : 'Compare the difference between numbers against a given tolerance'
+Summary  : Compare the difference between numbers against a given tolerance
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: perl-Test-Number-Delta-license = %{version}-%{release}
@@ -22,6 +22,7 @@ given tolerance
 Summary: dev components for the perl-Test-Number-Delta package.
 Group: Development
 Provides: perl-Test-Number-Delta-devel = %{version}-%{release}
+Requires: perl-Test-Number-Delta = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-Number-Delta package.
