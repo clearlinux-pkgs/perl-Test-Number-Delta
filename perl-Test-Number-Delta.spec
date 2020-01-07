@@ -4,13 +4,14 @@
 #
 Name     : perl-Test-Number-Delta
 Version  : 1.06
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.06.tar.gz
-Summary  : Compare the difference between numbers against a given tolerance
+Summary  : 'Compare the difference between numbers against a given tolerance'
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: perl-Test-Number-Delta-license = %{version}-%{release}
+Requires: perl-Test-Number-Delta-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -36,14 +37,24 @@ Group: Default
 license components for the perl-Test-Number-Delta package.
 
 
+%package perl
+Summary: perl components for the perl-Test-Number-Delta package.
+Group: Default
+Requires: perl-Test-Number-Delta = %{version}-%{release}
+
+%description perl
+perl components for the perl-Test-Number-Delta package.
+
+
 %prep
 %setup -q -n Test-Number-Delta-1.06
+cd %{_builddir}/Test-Number-Delta-1.06
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -53,7 +64,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -62,7 +73,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-Number-Delta
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-Number-Delta/LICENSE
+cp %{_builddir}/Test-Number-Delta-1.06/LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-Number-Delta/5304bf21bd261ac05d4427fc4d0b971e8b2731cc
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -75,7 +86,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Test/Number/Delta.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -83,4 +93,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Test-Number-Delta/LICENSE
+/usr/share/package-licenses/perl-Test-Number-Delta/5304bf21bd261ac05d4427fc4d0b971e8b2731cc
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Test/Number/Delta.pm
